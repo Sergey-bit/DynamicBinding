@@ -4,22 +4,19 @@
 
 int main(void)
 {
-    Class<A::__TR, A> obj1;
-    Class<B::__TR, B> obj2;
-    Class<C::__TR, C> obj3;
+    ClassWrapper<2>::B obj1;
+    ClassWrapper<1>::A obj2;
+    ClassWrapper<3>::C obj3;
 
-    // name of the method we wanna call
-    static constexpr Meta::Array::atype val("f");
+    // ((ClassWrapper<1>::C)obj1).f(); // Error. Каст изначального экземпляра класса А в С, где А - базовый класс
+    ((ClassWrapper<1>::A)obj1).f(); // Ожидается результат из класс B
+    ((ClassWrapper<3>::B)obj3).f(); // Ожидается результат из класс C
 
-    // cast to A
-    obj3.l = (A)obj3.l;
+    // ((ClassWrapper<2>::A)obj3).u(); // Error. Каст в класс, который не имеет данного метода
+    ((ClassWrapper<3>::C)obj3).u(); // Ожидается результат из класс B
+    ((ClassWrapper<3>::B)obj3).c(); // Ожидается результат из класс C
+    ((ClassWrapper<2>::B)obj1).c(); // Ожидается результат из класс B
 
-    // deduce closest type for executing func "val"
-    using t = Meta::Core::getRType<val, obj3.v, family_tree>;
-
-    // casting to the deduced type
-    t p = (t)(obj3.l);
-    p.f();
 
     return 0;
 }
