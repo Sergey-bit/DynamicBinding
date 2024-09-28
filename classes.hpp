@@ -30,7 +30,6 @@ struct ClassWrapper
     {
     public:
         static constexpr int lvli = 1;
-        static constexpr int n = N;
 
     private:
         template<typename T, int Index, Meta::Array::atype Name>
