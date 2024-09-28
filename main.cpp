@@ -1,5 +1,4 @@
 #include<iostream>
-#include"l.hpp"
 #include"classes.hpp"
 
 int main(void)

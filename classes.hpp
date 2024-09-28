@@ -1,11 +1,10 @@
 #ifndef CLASSES
 #define CLASSES
 
-using namespace ::Meta;
 
 #include<iostream>
 #include<string>
-#include"l.hpp"
+#include"Meta.hpp"
 
 // ClassWrapper - класс создающий семейство типа с индентификатором N, способный
 // к кастингу к любому типу в иерархии
