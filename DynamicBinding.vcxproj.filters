@@ -23,7 +23,7 @@
     <ClInclude Include="classes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="l.hpp">
+    <ClInclude Include="Meta.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
