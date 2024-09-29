@@ -96,7 +96,8 @@ struct ClassWrapper
             typename Meta::Array::createArray<
                 Meta::Array::atype("void f()"),
                 Meta::Array::atype("void c()"),
-                Meta::Array::atype("void u()")
+                Meta::Array::atype("void u()"),
+                Meta::Array::atype("int r(int)")
             >;
 
         template<int Index>
@@ -118,6 +119,7 @@ struct ClassWrapper
         void u_() { std::cout << "unique method from B\n\0"; }
         void c_() { std::cout << "hey from B.c\n\0"; }
         void f_() { std::cout << "Hey from B\n\0"; }
+        int r_(int a) { return  a * a; }
 
         void c()
         {
@@ -126,6 +128,10 @@ struct ClassWrapper
         void u()
         {
             converse<2>().u_();
+        }
+        int r(int a)
+        {
+            return converse<3>().r_(a);
         }
 
         template<typename T>
